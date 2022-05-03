@@ -1,9 +1,167 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>йобен бобен</title>
+    <style>
+        .colortext {
+            color: #0000ff;
+        }
+
+        .colortext1 {
+            color: #ffff00;
+        }
+
+        .colortext2 {
+            color: #8B4513;
+        }
+
+        p {
+            border: 8px solid #000000;
+            padding: 4px;
+        }
+
+        pp {
+            border: 8px solid red;
+            padding: 4px;
+        }
+
+        .turn:hover {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .layer {
+            width: 1500px; /* Ширина блока */
+        }
+
+        #footer {
+            position: fixed; /* Фиксированное положение */
+            left: 0;
+            bottom: 0; /* Левый нижний угол */
+            padding: 10px; /* Поля вокруг текста */
+            background: #39b54a; /* Цвет фона */
+            color: #fff; /* Цвет текста */
+            width: 100%; /* Ширина слоя */
+        }
+        /* Оформление боковой панели */
+        #side-checkbox {
+            display: none;
+        }
+
+        .side-panel {
+            position: fixed;
+            z-index: 999999;
+            top: 0;
+            left: -360px;
+            background: #808080;
+            transition: all 0.5s;
+            width: 320px;
+            height: 100vh;
+            box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+            color: #FFF;
+            padding: 40px 20px;
+        }
+
+        .side-title {
+            font-size: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #BFE2FF;
+        }
+        /* Оформление кнопки на странице */
+        .side-button-1-wr {
+            text-align: center; /* Контейнер для кнопки, чтобы было удобнее ее разместить */
+        }
+
+        .side-button-1 .side-b {
+            margin: 10px;
+            text-decoration: none;
+            position: relative;
+            font-size: 20px;
+            line-height: 20px;
+            padding: 12px 30px;
+            color: #FFF;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Roboto Condensed', Тahoma, sans-serif;
+            background: #808080;
+            cursor: pointer;
+            border: 3px solid #C0C0C0;
+        }
+
+            .side-button-1 .side-b:hover,
+            .side-button-1 .side-b:active,
+            .side-button-1 .side-b:focus {
+                color: #FFF;
+            }
+
+            .side-button-1 .side-b:after,
+            .side-button-1 .side-b:before {
+                position: absolute;
+                height: 4px;
+                left: 50%;
+                bottom: -6px;
+                content: "";
+                transition: all 280ms ease-in-out;
+                width: 0;
+            }
+
+        .side-button-1 .side-open:after,
+        .side-button-1 .side-open:before {
+            background: green;
+        }
+
+        .side-button-1 .side-close:after,
+        .side-button-1 .side-close:before {
+            background: red;
+        }
+
+        .side-button-1 .side-b:before {
+            top: -6px;
+        }
+
+        .side-button-1 .side-b:hover:after,
+        .side-button-1 .side-b:hover:before {
+            width: 100%;
+            left: 0;
+        }
+        /* Переключатели кнопки 1 */
+        .side-button-1 .side-close {
+            display: none;
+        }
+
+        #side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-open {
+            display: none;
+        }
+
+        #side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-close {
+            display: block;
+        }
+
+        #side-checkbox:checked + .side-panel {
+            left: 0;
+        }
+        /* Оформление кнопки на панеле */
+        .side-button-2 {
+            font-size: 30px;
+            border-radius: 20px;
+            position: absolute;
+            z-index: 1;
+            top: 8px;
+            right: 8px;
+            cursor: pointer;
+            transform: rotate(45deg);
+            color: #BFE2FF;
+            transition: all 280ms ease-in-out;
+        }
+
+            .side-button-2:hover {
+                transform: rotate(45deg) scale(1.1);
+                color: #FFF;
+            }
+    </style>
+    <style type="text/css">
+    </style>
 </head>
 <body>
     <title><>Я і мій сайт</title>
@@ -23,5 +181,32 @@
                 <h1><big>Це, доречі моє фото)</big></h1>
                 <hr color="#0000ff" size="12px" />
                 <hr color="#ffff00" size="12px" />
-            </body>
+                
+        <div id="footer">
+            <input type="checkbox" id="side-checkbox" />
+            <div class="side-panel">
+                <label class="side-button-2" for="side-checkbox">+</label>
+                <div class="side-title">Навігаційна панель:</div>
+
+                <p>
+                    <a href="index.html" target="_blank">Сторінка №1</a>
+                </p>
+                <p>Ви знаходитесь на сторінці №2</p>
+                <p>
+                    <a href="index3.html" target="_blank">Сторінка №3</a>
+                </p>
+                <p>
+                    <a href="index4.html" target="_blank">Сторінка №4</a>
+                </p>
+
+
+            </div>
+            <div class="side-button-1-wr">
+                <label class="side-button-1" for="side-checkbox">
+                    <div class="side-b side-open">Навігаційна панель сайту</div>
+                    <div class="side-b side-close">Закрити</div>
+                </label>
+            </div>
+        </div>
+    </body>
 </html>
